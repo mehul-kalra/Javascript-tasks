@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-7</title>
+    <style>
+      body {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to right, #f3804f, #3b4371);
+      }
+      .wrapper {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 30px;
+        /* border-left: solid #3b4371;
+        border-bottom: solid #3b4371;
+        border-right: solid #f3804f;
+        border-top: solid #f3804f; */
+        h1 {
+          color: white;
+          font-family: sans-serif;
+          margin: 0px;
+
+          font-size: 22px;
+          text-align: center;
+        }
+        .inputs {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          input {
+            height: 20px;
+            width: 180px;
+            padding: 10px;
+          }
+        }
+        .btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          button {
+            padding: 7px 12px;
+            border-radius: 18px;
+            font-size: 15px;
+            color: #3b4371;
+            border: none;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Convert Kilometer to Miles</h1>
+      <div class="inputs">
+        <input
+          type="number"
+          placeholder="Enter in kilometers"
+          class="kilometer"
+        />
+        <input type="text" disabled class="miles" />
+      </div>
+      <div class="btn">
+        <button onclick="calculation()">Convert</button>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function calculation() {
+    const kilometer_input = document.getElementsByClassName("kilometer")[0];
+    const miles_input = document.querySelector(".miles");
+
+    let km = parseFloat(kilometer_input.value);
+
+    const result = km * 0.6213712;
+    console.log("result", result);
+    miles_input.value = result.toFixed(2) + " miles";
+  }
+</script>

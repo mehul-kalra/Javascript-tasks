@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-11</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 99vw;
+        background-image: url(https://img.freepik.com/premium-photo/colorful-background-with-yellow-blue-geometric-pattern_481527-25413.jpg);
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        .main {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+          /* background-color: rgb(232, 169, 67); */
+          padding: 40px 60px;
+          border-radius: 30px;
+          h1 {
+            font-family: sans-serif;
+            font-weight: 500;
+            color: rgb(44, 32, 16);
+          }
+          .container {
+            display: flex;
+            gap: 30px;
+
+            input {
+              width: 200px;
+              padding: 7px;
+              border-radius: 5px;
+            }
+          }
+          h3 {
+            /* margin: 0px; */
+            font-family: sans-serif;
+            font-weight: 500;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Odd/Even Checker</h1>
+      <div class="container">
+        <input type="number" placeholder="Enter Value" class="digit" />
+        <button onclick="checker()">Evaluate</button>
+      </div>
+      <h3 class="result"></h3>
+    </div>
+  </body>
+</html>
+<script>
+  function checker() {
+    const digit_value = document.getElementsByClassName("digit")[0];
+    const result_value = document.getElementsByClassName("result")[0];
+    const digit = parseFloat(digit_value.value);
+    console.log(digit);
+    if (digit % 2 === 0) {
+      result_value.innerHTML = "The input value is Even";
+    } else {
+      result_value.innerHTML = "The input value is Odd";
+    }
+  }
+</script>

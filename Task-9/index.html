@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-9</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        background-color: rgb(179, 177, 177);
+      }
+      #random {
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-weight: 400;
+        color: rgb(21, 39, 46);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="random"></h1>
+  </body>
+</html>
+<script>
+  var random = Math.random().toFixed(2);
+  //   document.write(random);
+  console.log(random);
+  document.getElementById("random").innerHTML =
+    "The value of Random text is " + random;
+</script>

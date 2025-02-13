@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-13</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Prime Number Checker</h1>
+      <div class="container">
+        <input type="number" placeholder="Enter value" class="digit" />
+        <button onclick="primeChecker()">Evaluate</button>
+      </div>
+      <h3 class="result"></h3>
+    </div>
+  </body>
+</html>
+<script>
+  function primeChecker() {
+    var digit_input = document.getElementsByClassName("digit")[0];
+    var result_input = document.getElementsByClassName("result")[0];
+    var digit = parseFloat(digit_input.value);
+    if (digit % digit === 1) {
+      console.log("Prime Number");
+    } else {
+      console.log("not a Prime number");
+    }
+  }
+</script>

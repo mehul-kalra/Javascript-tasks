@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-12</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 99vw;
+        background-image: url(https://img.freepik.com/free-vector/blue-curve-frame-template_53876-116707.jpg);
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        .main {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+          /* background-color: rgb(232, 169, 67); */
+          padding: 40px 60px;
+          border-radius: 30px;
+          h1 {
+            font-family: sans-serif;
+            font-weight: 500;
+            color: rgb(44, 32, 16);
+          }
+          .container {
+            display: flex;
+            gap: 30px;
+
+            input {
+              width: 200px;
+              padding: 7px;
+              border-radius: 5px;
+            }
+          }
+          .btn {
+            margin-top: 10px;
+            button {
+              padding: 7px 10px;
+            }
+          }
+          h3 {
+            /* margin: 0px; */
+            font-family: sans-serif;
+            font-weight: 500;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Largest Number Checker</h1>
+      <div class="container">
+        <input type="number" placeholder="Enter First Value" class="first" />
+        <input type="number" placeholder="Enter Second Value" class="second" />
+        <input type="number" placeholder="Enter Third Value" class="third" />
+      </div>
+      <div class="btn">
+        <button onclick="largestChecker()">Check Out</button>
+      </div>
+      <h3 class="largest"></h3>
+    </div>
+  </body>
+</html>
+<script>
+  //   var x = [20, 30, 40];
+  //   var y = Math.max(...x);
+  //   console.log(y);
+
+  function largestChecker() {
+    var first_input = document.getElementsByClassName("first")[0];
+    var second_input = document.getElementsByClassName("second")[0];
+    var third_input = document.getElementsByClassName("third")[0];
+    var largest = document.getElementsByClassName("largest")[0];
+    var a = parseFloat(first_input.value);
+    var b = parseFloat(second_input.value);
+    var c = parseFloat(third_input.value);
+    var largest;
+    if (a >= b && a >= c) {
+      largest.textContent = "The largest number is " + a;
+    } else if (b >= a && b >= c) {
+      largest.textContent = "The largest number is " + b;
+    } else {
+      largest.textContent = "The largest number is " + c;
+    }
+    console.log("the largest no is " + largest);
+  }
+</script>
