@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-15</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Factorial Calculation</h1>
+      <div class="container">
+        <input type="number" placeholder="Enter a Value" class="digit" />
+        <button onclick="factorial()">Evaluate</button>
+      </div>
+      <h3 class="result"></h3>
+    </div>
+  </body>
+</html>
+<script>
+  function factorial() {
+    const digit_value = document.getElementsByClassName("digit")[0];
+    const result_value = document.getElementsByClassName("result")[0];
+
+    const digit = parseInt(digit_value.value);
+
+    if (isNaN(digit) || digit < 0) {
+      result_value.textContent = "Please enter a non-negative integer.";
+      return;
+    }
+
+    let res = 1;
+    for (let i = 2; i <= digit; i++) {
+      res *= i;
+    }
+
+    result_value.textContent = `Factorial: ${res}`;
+  }
+</script>

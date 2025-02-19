@@ -4,6 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task-13</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 99vw;
+        background-image: url(https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMjItbWluZC0xNl8xLmpwZw.jpg);
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        .main {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+          /* background-color: rgb(232, 169, 67); */
+          padding: 40px 60px;
+          border-radius: 30px;
+          h1 {
+            font-family: sans-serif;
+            font-weight: 500;
+            /* font-size: 20px; */
+            color: rgb(44, 32, 16);
+          }
+          .container {
+            display: flex;
+            gap: 30px;
+
+            input {
+              width: 350px;
+              height: 20px;
+              padding: 7px;
+              border-radius: 5px;
+            }
+            input::placeholder {
+              font-size: 15px;
+            }
+            button {
+              border-radius: 5px;
+              font-size: 15px;
+            }
+          }
+          .btn {
+            margin-top: 10px;
+            button {
+              padding: 7px 10px;
+            }
+          }
+          h3 {
+            /* margin: 0px; */
+            font-family: sans-serif;
+            font-weight: 500;
+          }
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="main">
@@ -18,13 +74,23 @@
 </html>
 <script>
   function primeChecker() {
-    var digit_input = document.getElementsByClassName("digit")[0];
-    var result_input = document.getElementsByClassName("result")[0];
-    var digit = parseFloat(digit_input.value);
-    if (digit % digit === 1) {
-      console.log("Prime Number");
-    } else {
-      console.log("not a Prime number");
+    const digit_input = document.getElementsByClassName("digit")[0];
+    const result_input = document.getElementsByClassName("result")[0];
+    const digit = parseFloat(digit_input.value);
+    if (isNaN(digit)) {
+      result_input.textContent = "Please enter a valid number.";
+      return;
     }
+    if (digit <= 1) {
+      result_input.textContent = `${digit} is not a Prime Number`;
+      return;
+    }
+    for (let i = 2; i * i <= digit; i++) {
+      if (digit % i === 0) {
+        result_input.textContent = `${digit} is not a Prime Number`;
+        return;
+      }
+    }
+    result_input.textContent = `${digit} is a Prime Number`;
   }
 </script>

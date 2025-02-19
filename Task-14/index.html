@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-14</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 99vw;
+        background-image: url(https://img.freepik.com/free-vector/blue-curve-frame-template_53876-116707.jpg);
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        .main {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+          /* background-color: rgb(232, 169, 67); */
+          padding: 40px 60px;
+          border-radius: 30px;
+          h1 {
+            font-family: sans-serif;
+            font-weight: 500;
+            color: rgb(44, 32, 16);
+          }
+          .container {
+            display: flex;
+            gap: 30px;
+
+            input {
+              width: 200px;
+              padding: 7px;
+              border-radius: 5px;
+            }
+          }
+          .btn {
+            margin-top: 10px;
+            button {
+              padding: 7px 10px;
+            }
+          }
+          h3 {
+            /* margin: 0px; */
+            font-family: sans-serif;
+            font-weight: 500;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Prime Number Checker for Interval</h1>
+      <div class="container">
+        <input
+          type="number"
+          placeholder="Enter Beginning value"
+          class="start"
+        />
+        <input type="number" placeholder="Enter Ending value" class="end" />
+      </div>
+      <div class="btn">
+        <button onclick="primeIntervalChecker()">Evaluate</button>
+      </div>
+      <h3 class="result"></h3>
+    </div>
+  </body>
+</html>
+<script>
+  function prime(num) {
+    if (num < 2) return false;
+    for (let i = 2; i * i <= num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+  function primeIntervalChecker() {
+    const startInput = document.querySelector(".start");
+    const endInput = document.querySelector(".end");
+    const resultInput = document.querySelector(".result");
+
+    const start = parseInt(startInput.value);
+    const end = parseInt(endInput.value);
+
+    if (isNaN(start) || isNaN(end)) {
+      resultInput.textContent = "Please enter a valid Numbers";
+      return;
+    }
+    if (start > end) {
+      resultInput.textContent =
+        "Starting value should be lesser then the end value";
+      return;
+    }
+    let primenumbers = [];
+    for (num = start; num <= end; num++) {
+      if (prime(num)) {
+        primenumbers.push(num);
+      }
+    }
+    if (primenumbers.length < 0) {
+      resultInput.textContent = "No prime numbers found in this range.";
+    } else {
+      resultInput.textContent = `Prime numbers between ${start} and ${end} is ${primenumbers}`;
+    }
+  }
+</script>
